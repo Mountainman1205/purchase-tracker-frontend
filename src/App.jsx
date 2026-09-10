@@ -82,6 +82,7 @@ export default function App() {
         {tab === "home" && (
           <>
             <AddPurchase categories={categories} onAdded={loadAll} />
+            <ReceiptUpload onSuccess={loadAll} />
             <PurchaseList purchases={purchases} onChanged={loadAll} />
           </>
         )}
