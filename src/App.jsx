@@ -5,6 +5,7 @@ import AddPurchase from "./components/AddPurchase";
 import PurchaseList from "./components/PurchaseList";
 import StatsCharts from "./components/StatsCharts";
 import BudgetList from "./components/BudgetList";
+import ReceiptUpload from "./components/ReceiptUpload";
 
 const TABS = [
   { id: "home", label: "Главная" },
