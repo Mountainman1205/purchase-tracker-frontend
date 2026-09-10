@@ -321,3 +321,11 @@ input::placeholder {
 .loading.error {
   color: var(--danger);
 }
+.row select {
+  flex: 1;
+  min-width: 0;
+}
+.row input,
+.row select {
+  min-width: 0;
+}
