@@ -20,6 +20,25 @@ async function request(path, options = {}) {
   return res.json();
 }
 
+async function uploadReceipt(file) {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const res = await fetch(`${API_URL}/api/purchases/from-receipt`, {
+    method: "POST",
+    headers: {
+      "X-Telegram-Init-Data": getInitData(),
+    },
+    body: formData,
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`API error ${res.status}: ${text}`);
+  }
+  return res.json();
+}
+
 export const api = {
   getCategories: () => request("/api/categories"),
   createCategory: (data) =>
@@ -41,4 +60,6 @@ export const api = {
   deleteBudget: (id) => request(`/api/budgets/${id}`, { method: "DELETE" }),
 
   getStatsSummary: () => request("/api/stats/summary"),
+
+  uploadReceipt,
 };
